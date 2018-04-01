@@ -22,19 +22,23 @@ cfg.market_types = {
     ["vodka"] = 30,
 
     --Food
-    ["bread"] = 2,
+    ["breed"] = 2,
     ["donut"] = 2,
     ["tacos"] = 8,
-    ["sandwich"] = 20,
+    ["sandwich"] = 15,
     ["kebab"] = 20,
-    ["pdonut"] = 65,
   },
-  ["drugstore"] = {
-    _config = {blipid=51, blipcolor=2},
+  ["chimique"] = {
+    _config = {blipid=52, blipcolor=46},
+    ["gold_catalyst"] = 50,
+    ["demineralized_water"] = 5
+  },
+  ["pharmacie"] = {
+    _config = {blipid=51, blipcolor=2, permissions={"emergency.shop"} },
     ["medkit"] = 75,
     ["pills"] = 10
   },
-  ["tools"] = {
+  ["outils"] = {
     _config = {blipid=51, blipcolor=47},
     ["repairkit"] = 50
   },
@@ -71,7 +75,9 @@ cfg.markets = {
   {"food",-1820.55725097656,792.770568847656,138.113250732422}, 
   {"food",-1486.76574707031,-379.553985595703,40.163387298584}, 
   {"food",-1223.18127441406,-907.385681152344,12.3263463973999}, 
-  {"food",-707.408996582031,-913.681701660156,19.2155857086182}
+  {"outils",-707.408996582031,-913.681701660156,19.2155857086182},
+  {"chimique",1163.79260253906,2705.58544921875,38.1576995849609},
+  {"pharmacie",-497.977142333984,-328.329895019531,34.501636505127}
 }
 
 return cfg

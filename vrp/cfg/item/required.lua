@@ -1,20 +1,20 @@
 
 local items = {}
 
-items["medkit"] = {"Medical Kit","Used to reanimate unconscious people.",nil,0.5}
-items["dirty_money"] = {"Dirty money","Illegally earned money.",nil,0}
-items["repairkit"] = {"Repair Kit","Used to repair vehicles.",nil,0.5}
+items["medkit"] = {"Kit médical","Utilisé pour réanimer les personnes inconscientes.",nil,0.5}
+items["dirty_money"] = {"Argent sale","Argent gagné illégalement.",nil,0}
+items["repairkit"] = {"Kit de réparation","Utilisé pour réparer un véhicule.",nil,0.5}
 
 -- money
-items["money"] = {"Money","Packed money.",function(args)
+items["money"] = {"Argent","Liasses d'argent.",function(args)
   local choices = {}
   local idname = args[1]
 
-  choices["Unpack"] = {function(player,choice,mod)
+  choices["Délier"] = {function(player,choice,mod)
     local user_id = vRP.getUserId(player)
     if user_id then
       local amount = vRP.getInventoryItemAmount(user_id, idname)
-      local ramount = vRP.prompt(player, "How much to unpack ? (max "..amount..")", "")
+      local ramount = vRP.prompt(player, "Combien à délier ? (max "..amount..")", "")
       ramount = parseInt(ramount)
       if vRP.tryGetInventoryItem(user_id, idname, ramount, true) then -- unpack the money
         vRP.giveMoney(user_id, ramount)
@@ -27,11 +27,11 @@ items["money"] = {"Money","Packed money.",function(args)
 end,0}
 
 -- money binder
-items["money_binder"] = {"Money binder","Used to bind 1000$ of money.",function(args)
+items["money_binder"] = {"Lieur d'argent","Utilisé pour lier 1000 $.",function(args)
   local choices = {}
   local idname = args[1]
 
-  choices["Bind money"] = {function(player,choice,mod) -- bind the money
+  choices["Lier l'argent"] = {function(player,choice,mod) -- bind the money
     local user_id = vRP.getUserId(player)
     if user_id then
       local money = vRP.getMoney(user_id)
@@ -61,7 +61,7 @@ end
 
 --- weapon body
 local wbody_name = function(args)
-  return get_wname(args[2]).." body"
+  return get_wname(args[2]).." (corps)"
 end
 
 local wbody_desc = function(args)
@@ -72,7 +72,7 @@ local wbody_choices = function(args)
   local choices = {}
   local fullidname = joinStrings(args,"|")
 
-  choices["Equip"] = {function(player,choice)
+  choices["Equiper"] = {function(player,choice)
     local user_id = vRP.getUserId(player)
     if user_id then
       if vRP.tryGetInventoryItem(user_id, fullidname, 1, true) then -- give weapon body
@@ -96,7 +96,7 @@ items["wbody"] = {wbody_name,wbody_desc,wbody_choices,wbody_weight}
 
 --- weapon ammo
 local wammo_name = function(args)
-  return get_wname(args[2]).." ammo"
+  return get_wname(args[2]).." (munition)"
 end
 
 local wammo_desc = function(args)
@@ -107,11 +107,11 @@ local wammo_choices = function(args)
   local choices = {}
   local fullidname = joinStrings(args,"|")
 
-  choices["Load"] = {function(player,choice)
+  choices["Charger"] = {function(player,choice)
     local user_id = vRP.getUserId(player)
     if user_id then
       local amount = vRP.getInventoryItemAmount(user_id, fullidname)
-      local ramount = vRP.prompt(player, "Amount to load ? (max "..amount..")", "")
+      local ramount = vRP.prompt(player, "Quantité à charger ? (max "..amount..")", "")
       ramount = parseInt(ramount)
 
       local uweapons = vRPclient.getWeapons(player)

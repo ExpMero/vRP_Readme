@@ -16,10 +16,11 @@ end
 --- _config:
 ---- permissions (optional)
 ---- not_uniform (optional): if true, the cloakroom will take effect directly on the player, not as a uniform you can remove
+
 cfg.cloakroom_types = {
   ["police"] = {
     _config = { permissions = {"police.cloakroom"} },
-    ["Male uniform"] = {
+    ["Homme"] = {
       [3] = {30,0},
       [4] = {25,2},
       [6] = {24,0},
@@ -27,7 +28,7 @@ cfg.cloakroom_types = {
       [11] = {55,0},
       ["p2"] = {2,0}
     },
-    ["Female uniform"] = {
+    ["Femme"] = {
       [3] = {35,0},
       [4] = {30,0},
       [6] = {24,0},
@@ -36,16 +37,39 @@ cfg.cloakroom_types = {
       ["p2"] = {2,0}
     }
   },
-  ["surgery"] = {
+  ["urgences"] = {
+    _config = { permissions = {"emergency.cloakroom"} },
+    ["Uniforme"] = {
+      [3] = {81,0},
+      [4] = {0,0},
+      [8] = {15,0},
+      [6] = {42,0},
+      [11] = {26,0},
+      ["p0"] = {6,1},
+      ["p6"] = {12,1}
+    }
+  },
+  ["prison"] = {
+    ["Vêtement prisonnier"] = {
+      [3] = {5,0},
+      [4] = {7,15},
+      [8] = {5,0},
+      [6] = {12,6},
+      [11] = {5,0}
+    }
+  },
+  ["chirurgie"] = {
     _config = { not_uniform = true },
-    ["Male"] = surgery_male,
-    ["Female"] = surgery_female
+    ["Homme"] = surgery_male,
+    ["Femme"] = surgery_female
   }
 }
 
 cfg.cloakrooms = {
-  {"police", 1848.21, 3688.51, 34.2671},
-  {"surgery",1849.7425,3686.5759,34.2670}
+  {"police", 454.324096679688,-991.499938964844,30.689577102661},
+  {"urgences", -498.472290039063,-332.419097900391,34.5017356872559},
+  {"prison",450.048889160156,-990.477600097656,30.6896018981934},
+  {"chirurgie",1849.7425,3686.5759,34.2670}
 }
 
 return cfg

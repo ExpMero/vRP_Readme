@@ -17,13 +17,13 @@ pills_choices["Take"] = {function(player,choice)
   if user_id then
     if vRP.tryGetInventoryItem(user_id,"pills",1) then
       vRPclient._varyHealth(player,25)
-      vRPclient._notify(player,"~g~ Taking pills.")
+      vRPclient._notify(player,"~g~ Prend le médicament.")
       play_drink(player)
       vRP.closeMenu(player)
     end
   end
 end}
 
-items["pills"] = {"Pills","A simple medication.",function(args) return pills_choices end,0.1}
+items["pills"] = {"Pills","Un médicament générique.",function(args) return pills_choices end,0.1}
 
 return items

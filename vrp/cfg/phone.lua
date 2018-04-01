@@ -27,37 +27,38 @@ cfg.services = {
     blipcolor = 38,
     alert_time = 300, -- 5 minutes
     alert_permission = "police.service",
-    alert_notify = "~r~Police alert:~n~~s~",
-    notify = "~b~You called the police.",
-    answer_notify = "~b~The police is coming."
+    alert_notify = "~r~Police alerte:~n~~s~",
+    notify = "~b~Vous avez appelé la police.",
+    answer_notify = "~b~La police arrive."
   },
   ["emergency"] = {
     blipid = 153,
     blipcolor = 1,
     alert_time = 300, -- 5 minutes
     alert_permission = "emergency.service",
-    alert_notify = "~r~Emergency alert:~n~~s~",
-    notify = "~b~You called the emergencies.",
-    answer_notify = "~b~The emergencies are coming."
+    alert_notify = "~r~Urgence alerte:~n~~s~",
+    notify = "~b~Vous avez appelé les urgences.",
+    answer_notify = "~b~Les urgences arrivent."
   },
   ["taxi"] = {
     blipid = 198,
     blipcolor = 5,
     alert_time = 300,
     alert_permission = "taxi.service",
-    alert_notify = "~y~Taxi alert:~n~~s~",
-    notify = "~y~You called a taxi.",
-    answer_notify = "~y~A taxi is coming."
+    alert_notify = "~y~Taxi alerte:~n~~s~",
+    notify = "~y~Vous avez appelé un taxi.",
+    answer_notify = "~y~Un taxi arrive."
   },
   ["repair"] = {
     blipid = 446,
     blipcolor = 5,
     alert_time = 300,
     alert_permission = "repair.service",
-    alert_notify = "~y~Repair alert:~n~~s~",
-    notify = "~y~You called a repairer.",
-    answer_notify = "~y~A repairer is coming."
+    alert_notify = "~y~Réparation alerte:~n~~s~",
+    notify = "~y~Vous avez appelé un réparateur.",
+    answer_notify = "~y~Un réparateur arrive."
   }
+
 }
 
 -- define phone announces
@@ -70,29 +71,28 @@ cfg.announces = {
     --image = "nui://vrp_mod/announce_admin.png",
     image = "http://i.imgur.com/kjDVoI6.png",
     price = 0,
-    description = "Admin only.",
+    description = "Admin seulement.",
     permission = "admin.announce"
   },
   ["police"] = {
     --image = "nui://vrp_mod/announce_police.png",
     image = "http://i.imgur.com/DY6DEeV.png",
     price = 0,
-    description = "Only for police, ex: wanted advert.",
+    description = "Seulement pour la police, ex: avis de recherche.",
     permission = "police.announce"
   },
   ["commercial"] = {
     --image = "nui://vrp_mod/announce_commercial.png",
     image = "http://i.imgur.com/b2O9WMa.png",
-    description = "Commercial stuff (buy, sell, work).",
+    description = "Annonce commerciales (travail, offres, demandes).",
     price = 5000
   },
-  ["party"] = {
+  ["événement"] = {
     --image = "nui://vrp_mod/announce_party.png",
     image = "http://i.imgur.com/OaEnk64.png",
-    description = "Organizing a party ? Let everyone know the rendez-vous.",
+    description = "Organisation d'une fête ? Annoncer à tous le rendez-vous.",
     price = 5000
   }
 }
 
 return cfg
-

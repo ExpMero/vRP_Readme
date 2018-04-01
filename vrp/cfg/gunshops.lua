@@ -9,6 +9,7 @@ local cfg = {}
 -- _config: blipid, blipcolor, permissions (optional, only users with the permission will have access to the shop)
 
 cfg.gunshop_types = {
+--[[
   ["sandyshores1"] = {
     _config = {blipid=154,blipcolor=1},
     ["WEAPON_BOTTLE"] = {"Bottle",1000,0,""},
@@ -113,11 +114,23 @@ cfg.gunshop_types = {
     ["WEAPON_SMOKEGRENADE"] = {"Smoke Grenade",50000,0,""},
     ["WEAPON_PETROLCAN"] = {"Petrol",50000,0,""}
   }
+--]]
+  ["blanche"] = {
+    _config = {blipid=154, blipcolor=1},
+    ["WEAPON_KNIFE"] = {"Couteau",75,0,"Couteau de bonne facture."},
+    ["WEAPON_MACHETE"] = {"Machette",250,0,"Machette bien aiguisée."}
+  },
+  ["poing"] = {
+    _config = {blipid=156, blipcolor=1},
+    ["WEAPON_PISTOL"] = {"Pistolet",950,1,"Pistolet simple."},
+    ["WEAPON_COMBATPISTOL"] = {"Pistolet de combat",1550,1.5,"Pistolet de combat."}
+  }
 }
 
 -- list of gunshops positions
 
 cfg.gunshops = {
+--[[
   {"sandyshores1", 1692.41, 3758.22, 34.7053},
   {"vinewood1", 252.696, -48.2487, 69.941},
   {"eastlossantos1", 844.299, -1033.26, 28.1949},
@@ -129,6 +142,9 @@ cfg.gunshops = {
   {"chumash1", -3172.60375976563,1085.74816894531,20.8387603759766},
   {"midlossantosrange", 21.70, -1107.41, 29.79},
   {"cypressflatsrange1", 810.15, -2156.88, 29.61}
+--]]
+  {"blanche", 21.70, -1107.41, 29.79},
+  {"poing", 844.299, -1033.26, 28.1949}
 }
 
 return cfg

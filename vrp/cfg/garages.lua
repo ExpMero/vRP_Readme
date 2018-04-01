@@ -221,6 +221,79 @@ cfg.garage_types = {
     ["thrust"] = {"Thrust",75000, ""},
     ["vader"] = {"Vader",9000, ""},
     ["vindicator"] = {"Vindicator",600000,""}
+  },
+  ["taxi"] = {
+    _config = {vtype="car", blipid=56, blipcolor=5, permissions = {"taxi.vehicle"} },
+    ["taxi"] = {"Taxi",100,""}
+  },
+  ["police"] = {
+    _config = {vtype="car", blipid=50, blipcolor=38, permissions = {"police.vehicle"} },
+    ["police"] = {"Basique",100,"Model basique."},
+    ["police3"] = {"Classique",25000,"Model sport classique."},
+    ["police2"] = {"Furtif",50000,"Model furtif."}
+  },
+  ["urgences"] = {
+    _config = {vtype="car",blipid=61,blipcolor=3,permission={"emergency.vehicle"} },
+    ["ambulance"] = {"Basic",100,""}
+  },
+  ["vélos"] = {
+    _config = {vtype="bike",blipid=376,blipcolor=4},
+    ["tribike"] = {"Tribike", 250, ""},
+    ["BMX"] = {"BMX", 450, ""}
+  },
+  ["bateaux"] = {
+    _config = {vtype="boat",blipid=427,blipcolor=4},
+    ["dinghy"] = {"Dinghy", 50000, "Un zodiac."},
+    ["dinghy2"] = {"Dinghy II", 50000, "Un zodiac."},
+    ["dinghy3"] = {"Dinghy III", 50000, "Un zodiac."},
+    ["dinghy4"] = {"Dinghy IV", 50000, "Un zodiac."},
+    ["marquis"] = {"Marquis", 250000, "Un voilier."},
+    ["seashark"] = {"Seashark", 9000, "Un jet-ski."},
+    ["seashark2"] = {"Seashark II", 9000, "Un jet-ski."},
+    ["seashark3"] = {"Seashark III", 9000, "Un jet-ski."},
+    ["speeder"] = {"Speeder", 600000, "Un bateau rapide."},
+    ["speeder2"] = {"Speeder II", 600000, "Un bateau rapide."},
+    ["squalo"] = {"Squalo", 600000, "Un bateau rapide."},
+    ["jetmax"] = {"JetMax", 600000, "Un bateau rapide."},
+    ["toro"] = {"Toro", 600000, "Un bateau rapide."},
+    ["toro2"] = {"Toro II", 600000, "Un bateau rapide."},
+    ["tropic"] = {"Tropic", 600000, "Un bateau rapide."},
+    ["tropic2"] = {"Tropic II", 600000, "Un bateau rapide."},
+    ["predator"] = {"Predator", 600000, "Un bateau rapide."},
+    ["suntrap"] = {"Suntrap", 250000, "Bateau de plaisance."}
+  },
+  ["avions"] = {
+    _config = {vtype="fly",blipid=307,blipcolor=4},
+    ["velum"] = {"Velum", 500000, "Avion à hélice."},
+    ["velum2"] = {"Velum II", 500000, "Avion à hélice."},
+    ["stunt"] = {"Stunt", 250000, "Petit avion à hélice."},
+    ["mammatus"] = {"Mammatus", 250000, "Petit avion à hélice."},
+    ["dodo"] = {"Dodo", 250000, "Petit avion à hélice."},
+    ["duster"] = {"Duster", 105000, "Vieux avion à hélice."},
+    ["cuban800"] = {"Cuban 800", 250000, "Petit avion à hélice."},
+    ["luxor"] = {"Luxor", 3500000, "Jet privé."},
+    ["luxor2"] = {"Luxor II", 3500000, "Jet privé."}
+  },
+  ["hélicos"] = {
+    _config = {vtype="fly",blipid=43,blipcolor=4},
+    ["maverick"] = {"Maverick", 150000, "Hélico d'entrée de gamme."},
+    ["swift"] = {"Swift", 550000, "Hélico rapide."},
+    ["swift2"] = {"Swift II", 550000, "Hélico rapide."},
+    ["supervolito"] = {"Super Volito", 850000, "Hélico rapide."},
+    ["supervolito2"] = {"Super Volito II", 850000, "Hélico rapide."},
+    ["volatus"] = {"Volatus", 3500000, "Hélico haut de gamme."}
+  },
+  ["transport"] = {
+    _config = {vtype="car",blipid=318,blipcolor=4},
+    ["packer"] = {"Packer", 15000, "Remorqueur basique."},
+    ["benson"] = {"Benson", 8000, "Camion basique."},
+    ["bison"] = {"Bison", 12000, "Pickup basique."}
+  },
+  ["conteneur"] = {
+    _config = {vtype="trailer",blipid=318,blipcolor=17},
+    ["trailersmall"] = {"Petit", 3000, "Petit conteneur pour pickup."},
+    ["trailers"] = {"Basic", 30000, "Conteneur moyen."},
+    ["tanker"] = {"Tanker", 300000, "Gros conteneur."}
   }
 }
 
@@ -231,15 +304,22 @@ cfg.garages = {
   {"sports",-1145.67, -1991.17, 13.162},
   {"sportsclassics",1174.76, 2645.46, 37.7545},
   {"supercars",112.275, 6619.83, 31.8154},
-  {"motorcycles",-205.789, -1308.02, 31.2916}
-  --{"planes",1640, 3236, 40.4},
-  --{"planes",2123, 4805, 41.19},
-  --{"planes",-1348, -2230, 13.9},
-  --{"helicopters",1750, 3260, 41.37},
-  --{"helicopters",-1233, -2269, 13.9},
-  --{"helicopters",-745, -1468, 5},
-  --{"boats",-849.5, -1368.64, 1.6},
-  --{"boats",1538, 3902, 30.35}
+  {"motorcycles",-205.789, -1308.02, 31.2916},
+  {"taxi",-286.870056152344,-917.948181152344,31.080623626709},
+  {"police",454.4,-1017.6,28.4},
+  {"urgences",-492.08544921875,-336.749206542969,34.3731842041016},
+  {"vélos",-352.038482666016,-109.240043640137,38.6970825195313},
+  {"bateaux",-849.501281738281,-1367.69567871094,1.60516905784607},
+  {"bateaux",1299.11730957031,4215.66162109375,33.9086799621582},
+  {"bateaux",3867.17578125,4464.54248046875,2.72485375404358},
+  {"avions",1640, 3236, 40.4},
+  {"avions",2123, 4805, 41.19},
+  {"avions",-1348, -2230, 13.9},
+  {"hélicos",1750, 3260, 41.37},
+  {"hélicos",-1233, -2269, 13.9},
+  {"hélicos",-745, -1468, 5},
+  {"conteneur",-978.674682617188,-2994.29028320313,13.945068359375},
+  {"transport",-962.553039550781,-2965.82470703125,13.9450702667236}
 }
 
 return cfg
