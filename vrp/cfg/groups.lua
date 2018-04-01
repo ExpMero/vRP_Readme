@@ -17,8 +17,8 @@ function police.init(player)
   weapons["WEAPON_NIGHTSTICK"] = {ammo=0}
   weapons["WEAPON_FLASHLIGHT"] = {ammo=0}
   
-  vRPclient.giveWeapons(player,{weapons,true})
-  vRPclient._setCop(player,{true})
+  vRPclient._giveWeapons(player,weapons,true)
+  vRPclient._setCop(player,true)
 end
 
 function police.onjoin(player)
