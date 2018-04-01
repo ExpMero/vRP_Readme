@@ -23,31 +23,31 @@ end
 
 function police.onjoin(player)
   police.init(player)
-  vRPclient._notify(player,{"Vous avez rejoint la police."})
+  vRPclient._notify(player,"Vous avez rejoint la police.")
 end
 
 function police.onleave(player)
-  vRPclient.giveWeapons(player,{{},true})
-  vRPclient._notify(player,{"Vous avez quitté la police."})
-  vRPclient._setCop(player,{false})
+  vRPclient.giveWeapons(player,{},true)
+  vRPclient._notify(player,"Vous avez quitté la police.")
+  vRPclient._setCop(player,false)
 end
 
 function police.onspawn(player)
   police.init(player)
-  vRPclient._notify(player,{"Vous êtes policier."})
+  vRPclient._notify(player,"Vous êtes policier.")
 end
 
 local taxi = {}
 function taxi.onjoin(player)
-  vRPclient._notify(player,{"Vous êtes chauffeur de taxi."})
+  vRPclient._notify(player,"Vous êtes chauffeur de taxi.")
 end
 
 function taxi.onspawn(player)
-  vRPclient._notify(player,{"Vous êtes chauffeur de taxi."})
+  vRPclient._notify(player,"Vous êtes chauffeur de taxi.")
 end
 
 function taxi.onleave(player)
-  vRPclient._notify(player,{"Vous avez quitté les chauffeurs de taxi."})
+  vRPclient._notify(player,"Vous avez quitté les chauffeurs de taxi.")
 end
 
 local function user_spawn(player)
@@ -56,14 +56,13 @@ local function user_spawn(player)
     -- welcome instructions
     local data = vRP.getUserDataTable(user_id)
 
-    vRPclient._notify(player,{"Ce serveur permet de tester le framework vRP~n~https://github.com/ImagicTheCat/vRP"})
-    vRPclient._notify(player,{"N'oubliez pas de changer votre touche \"haut\" du téléphone pour correctement utiliser les menus."})
+    vRPclient._notify(player,"N'oubliez pas de changer votre touche \"haut\" du téléphone pour correctement utiliser les menus.")
   end
 end
 
 cfg.groups = {
   ["superadmin"] = {
-    _config = {onspawn = function(player) vRPclient._notify(player,{"Vous êtes superadmin."}) end},
+    _config = {onspawn = function(player) vRPclient._notify(player,"Vous êtes superadmin.") end},
     "player.group.add",
     "player.group.remove",
     "player.givemoney",

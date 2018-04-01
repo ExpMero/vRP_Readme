@@ -18,7 +18,7 @@ local items = {
         if vRP.tryGetInventoryItem(user_id,"fruit_peche",1) then
           vRP.varyHunger(user_id,-10)
           vRP.varyThirst(user_id,-10)
-          vRPclient.notify(player,{"~o~ Mange une pêche."})
+          vRPclient.notify(player,"~o~ Mange une pêche.")
           play_eat(player)
           vRP.closeMenu(player)
         end
