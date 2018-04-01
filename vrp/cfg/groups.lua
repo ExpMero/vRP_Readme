@@ -53,9 +53,6 @@ end
 local function user_spawn(player)
   local user_id = vRP.getUserId(player)
   if user_id ~= nil and vRP.getSpawns(user_id) == 1 then
-    -- welcome instructions
-    local data = vRP.getUserDataTable(user_id)
-
     vRPclient._notify(player,"N'oubliez pas de changer votre touche \"haut\" du téléphone pour correctement utiliser les menus.")
   end
 end
