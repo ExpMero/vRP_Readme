@@ -52,7 +52,7 @@ end
 
 local function user_spawn(player)
   local user_id = vRP.getUserId(player)
-  if user_id ~= nil and vRP.isFirstSpawn(user_id) then
+  if user_id ~= nil and vRP.getSpawns(user_id) == 1 then
     -- welcome instructions
     local data = vRP.getUserDataTable(user_id)
 
