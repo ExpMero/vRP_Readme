@@ -6,12 +6,20 @@ end)
 
 -- MENU
 
+local menu_state = {}
+
 function tvRP.openMenuData(menudata)
   SendNUIMessage({act="open_menu", menudata = menudata})
 end
 
 function tvRP.closeMenu()
   SendNUIMessage({act="close_menu"})
+end
+
+-- return menu state
+--- opened: boolean
+function tvRP.getMenuState()
+  return menu_state
 end
 
 -- PROMPT
@@ -35,6 +43,10 @@ RegisterNUICallback("menu",function(data,cb)
   elseif data.act == "valid" then
     vRPserver._validMenuChoice(data.id,data.choice,data.mod)
   end
+end)
+
+RegisterNUICallback("menu_state",function(data,cb)
+  menu_state = data
 end)
 
 -- gui prompt event
@@ -62,16 +74,11 @@ function tvRP.announce(background,content)
   SendNUIMessage({act="announce",background=background,content=content})
 end
 
--- cfg
-RegisterNUICallback("cfg",function(data,cb) -- if NUI loaded after
-  SendNUIMessage({act="cfg",cfg=cfg.gui})
+-- init
+RegisterNUICallback("init",function(data,cb) -- NUI initialized
+  SendNUIMessage({act="cfg",cfg=cfg.gui}) -- send cfg
+  TriggerEvent("vRP:NUIready")
 end)
-SendNUIMessage({act="cfg",cfg=cfg.gui}) -- if NUI loaded before
-
--- try to fix missing cfg issue (cf: https://github.com/ImagicTheCat/vRP/issues/89)
-for i=1,5 do
-  SetTimeout(5000*i, function() SendNUIMessage({act="cfg",cfg=cfg.gui}) end)
-end
 
 -- PROGRESS BAR
 
@@ -348,13 +355,17 @@ if cfg.vrp_voip then -- setup voip world channel
     print("(vRPvoice-world) disconnected from "..player)
   end)
 
-  -- world channel config
-  tvRP.configureVoice("world", cfg.world_voice_config or {
-    effects = {
-      spatialization = { max_dist = cfg.voip_proximity }
-    }
-  })
+  AddEventHandler("vRP:NUIready", function()
+    -- world channel config
+    tvRP.configureVoice("world", cfg.world_voice_config or {
+      effects = {
+        spatialization = { max_dist = cfg.voip_proximity }
+      }
+    })
+  end)
 end
+
+
 
 -- detect players near, give positions to AudioEngine
 Citizen.CreateThread(function()
@@ -423,7 +434,7 @@ Citizen.CreateThread(function()
     if IsControlJustPressed(table.unpack(cfg.controls.phone.cancel)) then SendNUIMessage({act="event",event="CANCEL"}) end
 
     -- open general menu
-    if IsControlJustPressed(table.unpack(cfg.controls.phone.open)) and (not tvRP.isInComa() or not cfg.coma_disable_menu) and (not tvRP.isHandcuffed() or not cfg.handcuff_disable_menu) then vRPserver._openMainMenu() end
+    if IsControlJustPressed(table.unpack(cfg.controls.phone.open)) and (not tvRP.isInComa() or not cfg.coma_disable_menu) and (not tvRP.isHandcuffed() or not cfg.handcuff_disable_menu) and not menu_state.opened then vRPserver._openMainMenu() end
 
     -- F5,F6 (default: control michael, control franklin)
     if IsControlJustPressed(table.unpack(cfg.controls.request.yes)) then SendNUIMessage({act="event",event="F5"}) end
