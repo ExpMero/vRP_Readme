@@ -3,15 +3,15 @@ local cfg = {}
 
 -- example of study transformer
 local itemtr_study = {
-  name="Bookcase", -- menu name
+  name="Bibliothèque", -- menu name
   r=0,g=255,b=0, -- color
   max_units=20,
   units_per_minute=10,
   x=0,y=0,z=0, -- pos (doesn't matter as home component)
   radius=1.1, height=1.5, -- area
   recipes = {
-    ["Chemicals book"] = { -- action name
-      description="Read a chemicals book", -- action description
+    ["Livres de Chimie"] = { -- action name
+      description="Lire un livre de chimie", -- action description
       in_money=0, -- money taken per unit
       out_money=0, -- money earned per unit
       reagents={}, -- items taken per unit
@@ -20,8 +20,8 @@ local itemtr_study = {
         ["science.chemicals"] = 1 -- "group.aptitude", give 1 exp per unit
       }
     },
-    ["Mathematics book"] = { -- action name
-      description="Read a mathematics book", -- action description
+    ["Livres de Mathématiques"] = { -- action name
+      description="Lire un livre de mathématiques", -- action description
       in_money=0, -- money taken per unit
       out_money=0, -- money earned per unit
       reagents={}, -- items taken per unit

@@ -51,9 +51,9 @@ function taxi.onleave(player)
 end
 
 local function user_spawn(player)
-  local user_id = vRP.getUserId(player)
   if user_id ~= nil and vRP.getSpawns(user_id) == 1 then
-    vRPclient._notify(player,"N'oubliez pas de changer votre touche \"haut\" du téléphone pour correctement utiliser les menus.")
+    -- motd 
+    -- vRPclient._notify(player,"")
   end
 end
 
@@ -131,7 +131,9 @@ cfg.groups = {
     _config = { gtype = "job" },
     "vehicle.repair",
     "vehicle.replace",
-    "repair.service"
+    "repair.service",
+    "mission.repair.satellite_dishes", -- basic mission
+    "mission.repair.wind_turbines" -- basic mission
   },
   ["citoyen"] = {
     _config = { gtype = "job" }

@@ -3,17 +3,17 @@ local cfg = {}
 
 -- define customization parts
 local parts = {
-  ["Face"] = 0,
-  ["Hair"] = 2,
-  ["Hand"] = 3,
-  ["Legs"] = 4,
+  ["Visage"] = 0,
+  ["Cheveux"] = 2,
+  ["Mains"] = 3,
+  ["Jambes"] = 4,
   ["Shirt"] = 8,
-  ["Shoes"] = 6,
-  ["Jacket"] = 11,
-  ["Hats"] = "p0",
-  ["Glasses"] = "p1",
-  ["Ears"] = "p2",
-  ["Watches"] = "p6"
+  ["Pieds"] = 6,
+  ["Veste"] = 11,
+  ["Tête"] = "p0",
+  ["Lunettes"] = "p1",
+  ["Oreilles"] = "p2",
+  ["Montres"] = "p6"
 }
 
 -- changes prices (any change to the character parts add amount to the total price)
