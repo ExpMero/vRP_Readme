@@ -26,7 +26,7 @@ cfg.static_chest_types = {
 
 -- list of static menu points
 cfg.static_chests = {
-  {"chest", 1855.13940429688,3688.68579101563,34.2670478820801}
+--  {"chest", 1855.13940429688,3688.68579101563,34.2670478820801}
 }
 
 return cfg
