@@ -221,26 +221,26 @@ cfg.garage_types = {
     ["vindicator"] = {"Vindicator",600000,""}
   },
   ["taxi"] = {
-    _config = {vtype="car", blipid=56, blipcolor=5, permissions = {"taxi.vehicle"} },
+    _config = {blipid=56, blipcolor=5, permissions = {"taxi.vehicle"} },
     ["taxi"] = {"Taxi",100,""}
   },
   ["police"] = {
-    _config = {vtype="car", blipid=50, blipcolor=38, permissions = {"police.vehicle"} },
+    _config = {blipid=50, blipcolor=38, permissions = {"police.vehicle"} },
     ["police"] = {"Basique",100,"Model basique."},
     ["police3"] = {"Classique",25000,"Model sport classique."},
     ["police2"] = {"Furtif",50000,"Model furtif."}
   },
   ["urgences"] = {
-    _config = {vtype="car",blipid=61,blipcolor=3,permission={"emergency.vehicle"} },
+    _config = {blipid=61,blipcolor=3,permission={"emergency.vehicle"} },
     ["ambulance"] = {"Basic",100,""}
   },
   ["vélos"] = {
-    _config = {vtype="bike",blipid=376,blipcolor=4},
+    _config = {blipid=376,blipcolor=4},
     ["tribike"] = {"Tribike", 250, ""},
     ["BMX"] = {"BMX", 450, ""}
   },
   ["bateaux"] = {
-    _config = {vtype="boat",blipid=427,blipcolor=4},
+    _config = {blipid=427,blipcolor=4},
     ["dinghy"] = {"Dinghy", 50000, "Un zodiac."},
     ["dinghy2"] = {"Dinghy II", 50000, "Un zodiac."},
     ["dinghy3"] = {"Dinghy III", 50000, "Un zodiac."},
@@ -261,7 +261,7 @@ cfg.garage_types = {
     ["suntrap"] = {"Suntrap", 250000, "Bateau de plaisance."}
   },
   ["avions"] = {
-    _config = {vtype="fly",blipid=307,blipcolor=4},
+    _config = {blipid=307,blipcolor=4},
     ["velum"] = {"Velum", 500000, "Avion à hélice."},
     ["velum2"] = {"Velum II", 500000, "Avion à hélice."},
     ["stunt"] = {"Stunt", 250000, "Petit avion à hélice."},
@@ -273,7 +273,7 @@ cfg.garage_types = {
     ["luxor2"] = {"Luxor II", 3500000, "Jet privé."}
   },
   ["hélicos"] = {
-    _config = {vtype="fly",blipid=43,blipcolor=4},
+    _config = {blipid=43,blipcolor=4},
     ["maverick"] = {"Maverick", 150000, "Hélico d'entrée de gamme."},
     ["swift"] = {"Swift", 550000, "Hélico rapide."},
     ["swift2"] = {"Swift II", 550000, "Hélico rapide."},
@@ -282,13 +282,13 @@ cfg.garage_types = {
     ["volatus"] = {"Volatus", 3500000, "Hélico haut de gamme."}
   },
   ["transport"] = {
-    _config = {vtype="car",blipid=318,blipcolor=4},
+    _config = {blipid=318,blipcolor=4},
     ["packer"] = {"Packer", 15000, "Remorqueur basique."},
     ["benson"] = {"Benson", 8000, "Camion basique."},
     ["bison"] = {"Bison", 12000, "Pickup basique."}
   },
   ["conteneur"] = {
-    _config = {vtype="trailer",blipid=318,blipcolor=17},
+    _config = {blipid=318,blipcolor=17},
     ["trailersmall"] = {"Petit", 3000, "Petit conteneur pour pickup."},
     ["trailers"] = {"Basic", 30000, "Conteneur moyen."},
     ["tanker"] = {"Tanker", 300000, "Gros conteneur."}
