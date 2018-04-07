@@ -6,7 +6,7 @@ local function play_eat(player)
     {"mp_player_inteat@burger", "mp_player_int_eat_exit_burger",1}
   }
 
-  vRPclient.playAnim(player,{true,seq,false})
+  vRPclient.playAnim(player,true,seq,false)
 end
 
 -- idname = {name,description,choices}
