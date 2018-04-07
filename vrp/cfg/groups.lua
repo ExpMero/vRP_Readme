@@ -19,6 +19,7 @@ function police.init(player)
   
   vRPclient._giveWeapons(player,weapons,true)
   vRPclient._setCop(player,true)
+  vRPclient._setArmour(player,100)
 end
 
 function police.onjoin(player)
@@ -30,6 +31,7 @@ function police.onleave(player)
   vRPclient.giveWeapons(player,{},true)
   vRPclient._notify(player,"Vous avez quitté la police.")
   vRPclient._setCop(player,false)
+  vRPclient._setArmour(player,0)
 end
 
 function police.onspawn(player)
