@@ -25,7 +25,7 @@ cfg.static_chest_types = {
   }
 }
 
--- list of static menu points
+-- list of static chest points
 cfg.static_chests = {
   {"police_seized", 452.37237548828,-979.22149658203,30.689582824707}
 }
