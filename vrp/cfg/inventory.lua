@@ -16,17 +16,18 @@ cfg.vehicle_chest_weights = {
 
 -- list of static chest types (map of name => {.title,.blipid,.blipcolor,.weight, .permissions (optional)})
 cfg.static_chest_types = {
-  ["chest"] = { -- example of a static chest
-    title = "Test chest",
-    blipid = 205,
-    blipcolor = 5,
-    weight = 100
+  ["police_seized"] = { -- example of a static chest
+    title = "Saisies police",
+    blipid = 374,
+    blipcolor = 38,
+    weight = 500,
+    permissions = {"police.chest_seized"}
   }
 }
 
 -- list of static menu points
 cfg.static_chests = {
---  {"chest", 1855.13940429688,3688.68579101563,34.2670478820801}
+  {"police_seized", 452.37237548828,-979.22149658203,30.689582824707}
 }
 
 return cfg

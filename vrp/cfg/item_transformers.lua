@@ -216,7 +216,6 @@ cfg.hidden_transformers = {
   ["Traitement canabis"] = {
     def = {
       name="Traitement du canabis", -- menu name
-      -- permission = "harvest.water_bottle", -- you can add a permission
       r=0,g=200,b=0, -- color
       max_units=1000,
       units_per_minute=1000,
@@ -235,6 +234,9 @@ cfg.hidden_transformers = {
             ["weed_processed"] = 1
           }
         }
+      },
+      permissions = {
+        "@science.chemicals.>4"
       }
     },
     positions = {

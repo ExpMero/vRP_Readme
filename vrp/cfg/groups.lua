@@ -50,6 +50,32 @@ function taxi.onleave(player)
   vRPclient._notify(player,"Vous avez quitté les chauffeurs de taxi.")
 end
 
+local repair = {}
+function repair.onjoin(player)
+  vRPclient._notify(player,"Vous êtes réparateur.")
+end
+
+function repair.onspawn(player)
+  vRPclient._notify(player,"Vous êtes réparateur.")
+end
+
+function repair.onleave(player)
+  vRPclient._notify(player,"Vous avez quitté les réparateurs.")
+end
+
+local emergency = {}
+function emergency.onjoin(player)
+  vRPclient._notify(player,"Vous êtes urgentiste.")
+end
+
+function emergency.onspawn(player)
+  vRPclient._notify(player,"Vous êtes urgentiste.")
+end
+
+function emergency.onleave(player)
+  vRPclient._notify(player,"Vous avez quitté les urgentistes.")
+end
+
 local function user_spawn(player)
   if user_id ~= nil and vRP.getSpawns(user_id) == 1 then
     -- motd 
@@ -111,11 +137,12 @@ cfg.groups = {
     "police.jail",
     "police.fine",
     "police.announce",
+    "police.chest_seized",
     "-police.store_weapons",
     "-police.seizable" -- negative permission, police can't seize itself, even if another group add the permission
   },
-  ["urgences"] = {
-    _config = { gtype = "job" },
+  ["emergency"] = {
+    _config = { gtype = "job", onspawn = emergency.onspawn, onjoin = emergency.onjoin, onleave = emergency.onleave },
     "emergency.revive",
     "emergency.shop",
     "emergency.service",
@@ -127,15 +154,15 @@ cfg.groups = {
     "taxi.service",
     "taxi.vehicle"
   },
-  ["réparateur"] = {
-    _config = { gtype = "job" },
+  ["repair"] = {
+    _config = { gtype = "job", onspawn = repair.onspawn, onjoin = repair.onjoin, onleave = repair.onleave },
     "vehicle.repair",
     "vehicle.replace",
     "repair.service",
     "mission.repair.satellite_dishes", -- basic mission
     "mission.repair.wind_turbines" -- basic mission
   },
-  ["citoyen"] = {
+  ["citizen"] = {
     _config = { gtype = "job" }
   }
 }
