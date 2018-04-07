@@ -3,6 +3,7 @@ local cfg = {}
 
 -- define each group with a set of permissions
 -- _config property:
+--- title (optional): group display name
 --- gtype (optional): used to have only one group with the same gtype per player (example: a job gtype to only have one job)
 --- onspawn (optional): function(player) (called when the player spawn with the group)
 --- onjoin (optional): function(player) (called when the player join the group)
@@ -32,6 +33,7 @@ function police.onleave(player)
   vRPclient._notify(player,"Vous avez quitté la police.")
   vRPclient._setCop(player,false)
   vRPclient._setArmour(player,0)
+  vRP.removeCloak(player)
 end
 
 function police.onspawn(player)
@@ -76,6 +78,7 @@ end
 
 function emergency.onleave(player)
   vRPclient._notify(player,"Vous avez quitté les urgentistes.")
+  vRP.removeCloak(player)
 end
 
 local function user_spawn(player)
@@ -123,7 +126,13 @@ cfg.groups = {
     "police.seizable" -- can be seized
   },
   ["police"] = {
-    _config = { gtype = "job", onleave = police.onleave, onjoin = police.onjoin, onspawn = police.onspawn },
+    _config = {
+      title = "Police",
+      gtype = "job",
+      onjoin = police.onjoin,
+      onspawn = police.onspawn,
+      onleave = police.onleave
+    },
     "police.menu",
     "police.cloakroom",
     "police.pc",
@@ -144,7 +153,13 @@ cfg.groups = {
     "-police.seizable" -- negative permission, police can't seize itself, even if another group add the permission
   },
   ["emergency"] = {
-    _config = { gtype = "job", onspawn = emergency.onspawn, onjoin = emergency.onjoin, onleave = emergency.onleave },
+    _config = { 
+      title = "Urgences",
+      gtype = "job", 
+      onspawn = emergency.onspawn, 
+      onjoin = emergency.onjoin, 
+      onleave = emergency.onleave 
+    },
     "emergency.revive",
     "emergency.shop",
     "emergency.service",
@@ -152,20 +167,38 @@ cfg.groups = {
     "emergency.cloakroom"
   },
   ["taxi"] = {
-    _config = { gtype = "job", onspawn = taxi.onspawn, onjoin = taxi.onjoin, onleave = taxi.onleave },
+    _config = { 
+      title = "Taxi",
+      gtype = "job", 
+      onspawn = taxi.onspawn, 
+      onjoin = taxi.onjoin, 
+      onleave = taxi.onleave
+    },
     "taxi.service",
     "taxi.vehicle"
   },
   ["repair"] = {
-    _config = { gtype = "job", onspawn = repair.onspawn, onjoin = repair.onjoin, onleave = repair.onleave },
+    _config = { 
+      title = "Réparateur",
+      gtype = "job", 
+      onspawn = repair.onspawn, 
+      onjoin = repair.onjoin, 
+      onleave = repair.onleave 
+    },
     "vehicle.repair",
     "vehicle.replace",
     "repair.service",
     "mission.repair.satellite_dishes", -- basic mission
-    "mission.repair.wind_turbines" -- basic mission
+    "mission.repair.wind_turbines", -- basic mission
+    "vehicle.repair",
+    "vehicle.replace",
+    "repair.service"
   },
   ["citizen"] = {
-    _config = { gtype = "job" }
+    _config = {
+      title = "Citoyen",
+      gtype = "job"
+    }
   }
 }
 
@@ -185,18 +218,18 @@ cfg.selectors = {
   ["Métiers"] = {
     _config = {x = -268.363739013672, y = -957.255126953125, z = 31.22313880920410, blipid = 351, blipcolor = 47},
     "taxi",
-    "réparateur",
-    "citoyen"
+    "repair",
+    "citizen"
   },
   ["Pointage police"] = {
     _config = {x = 437.924987792969,y = -987.974182128906, z = 30.6896076202393 , blipid = 351, blipcolor= 38 },
     "police",
-    "citoyen"
+    "citizen"
   },
   ["Pointage urgences"] = {
     _config = {x=-498.959716796875,y=-335.715148925781,z=34.5017547607422, blipid = 351, blipcolor= 1 },
-    "urgences",
-    "citoyen"
+    "emergency",
+    "citizen"
   }
 }
 
