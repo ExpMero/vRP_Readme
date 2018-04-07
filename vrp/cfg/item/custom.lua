@@ -23,8 +23,9 @@ local items = {
           vRP.closeMenu(player)
         end
       end
-    end,0.15} 
-  } end
+    end}
+  } end,
+    0.15
   },
   ["gold_ore"] = {"Minerais d'Or","",nil,1},
   ["gold_processed"] = {"Or traité","",nil,1.2},
