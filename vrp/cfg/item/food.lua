@@ -33,7 +33,7 @@ local function gen(ftype, vary_hunger, vary_thirst)
     local idname = args[1]
     local choices = {}
     local act = "Unknown"
-    if ftype == "eat" then act = "Eat" elseif ftype == "drink" then act = "Drink" end
+    if ftype == "eat" then act = "Manger" elseif ftype == "drink" then act = "Boire" end
     local name = vRP.getItemName(idname)
 
     choices[act] = {function(player,choice)
